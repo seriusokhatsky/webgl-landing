@@ -62,16 +62,23 @@ class Scroll {
 
 class WebGLCanvas {
 	constructor(scroll) {
-		var that = this;
 		this.canvas = document.getElementById('main-canvas');
 		this.scene = new THREE.Scene();
 		this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		this.camera.position.z = 70;
 		this.renderer = new THREE.WebGLRenderer( { canvas: this.canvas, alpha: true, antialias: true } );
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
+		this.imagesMaterials = [];
+		this.animationTime = 1.3;
+		var that = this;
 
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 
+			
+		this.cameraOffset = {
+			x: window.innerWidth / 2,
+			y: -window.innerHeight / 2
+		};
 		var images = document.querySelectorAll('.float-image');
 
 		images.forEach((el) => {
@@ -95,28 +102,35 @@ class WebGLCanvas {
 				uniforms: {
 					u_time: { value: 1.0 },
 					u_pos: { value: 1.0 },
+					u_hover: { value: 0. },
 					texture: { type: 't', value: texture },
 					resolution: {type: 'v2', value: new THREE.Vector2(window.innerWidth,window.innerHeight)},
 					imgResolution: {type: 'v2', value: new THREE.Vector2(imgW,imgH)},
+					u_uvrate: {type: 'v2', value: imgW / imgH},
 				},
 				vertexShader: vertexShader,
 				fragmentShader: fragmentShader
 			
 			} );
+
+
+			img.addEventListener('mouseenter', () => {
+				console.log(material.uniforms.u_hover);
+				var tl = new TimelineMax();
+				tl.to(material.uniforms.u_hover, this.animationTime, { ease: Power4.easeOut, value: 1.0 } );
+				});
+
+			img.addEventListener('mouseleave', () => {
+				console.log(material.uniforms.u_hover);
+				var tl = new TimelineMax();
+				tl.to(material.uniforms.u_hover, this.animationTime, { ease: Power4.easeOut, value: 0.0 } );
+			});
+
+			this.imagesMaterials.push(material);
 	
 			var plane = new THREE.Mesh( geometry, material );
 			this.scene.add( plane );
 	
-	
-			// var cameraZ = this.camera.position.z;
-			// var planeZ = 5;
-			// var distance = cameraZ - planeZ;
-			// var aspect = window.innerWidth / window.innerHeight;
-			// var vFov = this.camera.fov * Math.PI / 180;
-			// var planeHeightAtDistance = 2 * Math.tan(vFov / 2) * distance;
-			// var planeWidthAtDistance = planeHeightAtDistance * aspect;
-	
-			// or
 	
 			var imgRect = el.getBoundingClientRect();
 
@@ -125,36 +139,36 @@ class WebGLCanvas {
 			plane.position.x = imgRect.x + img.width / 2;
 			plane.position.y = -imgRect.y - img.height / 2;
 
-			var cameraOffset = {
-				x: window.innerWidth / 2,
-				y: -window.innerHeight / 2
-			};
-	
-	
+			// scale plane to screen
 			let dist = this.camera.position.z - plane.position.z;
 			let height = window.innerHeight;
 			this.camera.fov = 2 * Math.atan(height / (2 * dist)) * (180 / Math.PI);
 			this.camera.updateProjectionMatrix();
-			this.camera.position.x = cameraOffset.x;
-			this.camera.position.y = cameraOffset.y;
-	
-			scroll.addEvent(function(position) {
-				console.log(position);
-				
-				var tl4 = new TimelineMax();
-				tl4.to(that.camera.position, this.animationTime, { ease: Power4.easeOut, y: cameraOffset.y + position} );
-				var tl5 = new TimelineMax();
-				tl5.to(material.uniforms.u_pos, this.animationTime, { ease: Power4.easeOut, value: position } );
-			});
+			this.camera.position.x = this.cameraOffset.x;
+			this.camera.position.y = this.cameraOffset.y;
+
 	
 		});
 
+		scroll.addEvent((position) => {
+			console.log(position);
+
+			var tl4 = new TimelineMax();
+			tl4.to(that.camera.position, this.animationTime, { ease: Power4.easeOut, y: this.cameraOffset.y + position} );
+
+			this.imagesMaterials.forEach((el) => {
+				var tl5 = new TimelineMax();
+				tl5.to(el.uniforms.u_pos, this.animationTime, { ease: Power4.easeOut, value: position } );
+			})
+		});
 
 		var time = 0.1;
 
 		function animate() {
 			time += 0.1;
-			// material.uniforms.u_time.value = time;
+			that.imagesMaterials.forEach((el) => {
+				el.uniforms.u_time.value = time;
+			})
 			requestAnimationFrame( animate );
 			that.renderer.render(that.scene, that.camera);
 		}

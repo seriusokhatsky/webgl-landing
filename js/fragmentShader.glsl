@@ -3,6 +3,8 @@ uniform vec2 resolution;
 uniform vec2 imgResolution;
 uniform sampler2D texture;
 varying vec2 vUv;
+uniform float u_hover;
+uniform float u_uvrate;
 // 2D Random
 float random (in vec2 st) {
     return fract(sin(dot(st.xy,
@@ -36,6 +38,15 @@ float noise (in vec2 st) {
 
 void main()	{
     vec2 xy = vUv;
+
+    float d = distance( xy, vec2(.5,.5));
+    float scale = .15;
+
+    vec2 scaleCenter = vec2(0.5, 0.5);
+
+    xy = (xy - scaleCenter) / (1. + scale * u_hover) + scaleCenter;
+    // xy.x -= ( xy.x - .5 ) - (u_hover * scale);
+    // xy.y -= ( xy.y - .5 ) - (u_hover * scale) * u_uvrate;
 
     // xy.x = xy.x + ( xy.y - .5 ) * ( xy.y - .5 )  / 5.;
 

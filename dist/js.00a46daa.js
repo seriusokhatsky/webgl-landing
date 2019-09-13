@@ -52833,9 +52833,9 @@ if (typeof exports !== 'undefined') {
 }
 
 },{}],"js/vertexShader.glsl":[function(require,module,exports) {
-module.exports = "#define GLSLIFY 1\nvarying vec2 vUv;\nuniform float u_time;\nuniform float u_pos;\nvoid main() {\n    vUv = uv;\n    vec3 newPositon = position;\n    float wave = 30.;\n    newPositon.z = position.z + sin( 180. +  ( position.y - u_pos ) / 160. ) * 2.2;\n    gl_Position = projectionMatrix *\n                modelViewMatrix *\n                vec4(newPositon, 1.0);\n}";
+module.exports = "#define GLSLIFY 1\nvarying vec2 vUv;\nuniform float u_time;\nuniform float u_pos;\nuniform float u_hover;\nvoid main() {\n    vUv = uv;\n    vec3 newPositon = position;\n    float wave = 30.;\n    float zOffset = sin( 180. +  ( position.y - u_pos ) / 160. + u_time / 10. ) * 2.0;\n    newPositon.z = position.z + zOffset * ( 1. - u_hover );\n    // newPositon.x += newPositon.x * (u_hover / 20.);\n    // newPositon.y += newPositon.y * (u_hover / 20.);\n    gl_Position = projectionMatrix *\n                modelViewMatrix *\n                vec4(newPositon, 1.0);\n}";
 },{}],"js/fragmentShader.glsl":[function(require,module,exports) {
-module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform vec2 resolution;\nuniform vec2 imgResolution;\nuniform sampler2D texture;\nvarying vec2 vUv;\n// 2D Random\nfloat random (in vec2 st) {\n    return fract(sin(dot(st.xy,\n                         vec2(12.9898,78.233)))\n                 * 43758.5453123);\n}\n\n// 2D Noise based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 st) {\n    vec2 i = floor(st);\n    vec2 f = fract(st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    // Smooth Interpolation\n\n    // Cubic Hermine Curve.  Same as SmoothStep()\n    vec2 u = f*f*(3.0-2.0*f);\n    // u = smoothstep(0.,1.,f);\n\n    // Mix 4 coorners percentages\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1.0 - u.x) +\n            (d - b) * u.x * u.y;\n}\n\nvoid main()\t{\n    vec2 xy = vUv;\n\n    // xy.x = xy.x + ( xy.y - .5 ) * ( xy.y - .5 )  / 5.;\n\n    vec4 color = texture2D(texture, xy);\n\n    if( xy.x < 0. || xy.x > 1. ) {\n        // color = vec4(1.);\n    }\n\n    // color = vec4(1., 0., 1., 1.);\n\n    // textureColor.r += noise(xy) / 5.;\n    // textureColor.g += noise(xy) / 15.;\n    // textureColor.b += noise(xy) / 3.;\n\n    gl_FragColor = color;\n}";
+module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform vec2 resolution;\nuniform vec2 imgResolution;\nuniform sampler2D texture;\nvarying vec2 vUv;\nuniform float u_hover;\nuniform float u_uvrate;\n// 2D Random\nfloat random (in vec2 st) {\n    return fract(sin(dot(st.xy,\n                         vec2(12.9898,78.233)))\n                 * 43758.5453123);\n}\n\n// 2D Noise based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 st) {\n    vec2 i = floor(st);\n    vec2 f = fract(st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    // Smooth Interpolation\n\n    // Cubic Hermine Curve.  Same as SmoothStep()\n    vec2 u = f*f*(3.0-2.0*f);\n    // u = smoothstep(0.,1.,f);\n\n    // Mix 4 coorners percentages\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1.0 - u.x) +\n            (d - b) * u.x * u.y;\n}\n\nvoid main()\t{\n    vec2 xy = vUv;\n\n    float d = distance( xy, vec2(.5,.5));\n    float scale = .15;\n\n    vec2 scaleCenter = vec2(0.5, 0.5);\n\n    xy = (xy - scaleCenter) / (1. + scale * u_hover) + scaleCenter;\n    // xy.x -= ( xy.x - .5 ) - (u_hover * scale);\n    // xy.y -= ( xy.y - .5 ) - (u_hover * scale) * u_uvrate;\n\n    // xy.x = xy.x + ( xy.y - .5 ) * ( xy.y - .5 )  / 5.;\n\n    vec4 color = texture2D(texture, xy);\n\n    if( xy.x < 0. || xy.x > 1. ) {\n        // color = vec4(1.);\n    }\n\n    // color = vec4(1., 0., 1., 1.);\n\n    // textureColor.r += noise(xy) / 5.;\n    // textureColor.g += noise(xy) / 15.;\n    // textureColor.b += noise(xy) / 3.;\n\n    gl_FragColor = color;\n}";
 },{}],"assets/1.jpg":[function(require,module,exports) {
 module.exports = "/1.281c93e8.jpg";
 },{}],"js/index.js":[function(require,module,exports) {
@@ -52930,7 +52930,6 @@ var WebGLCanvas = function WebGLCanvas(scroll) {
 
   _classCallCheck(this, WebGLCanvas);
 
-  var that = this;
   this.canvas = document.getElementById('main-canvas');
   this.scene = new _three.THREE.Scene();
   this.camera = new _three.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -52941,7 +52940,14 @@ var WebGLCanvas = function WebGLCanvas(scroll) {
     antialias: true
   });
   this.renderer.setSize(window.innerWidth, window.innerHeight);
+  this.imagesMaterials = [];
+  this.animationTime = 1.3;
+  var that = this;
   this.renderer.setPixelRatio(window.devicePixelRatio);
+  this.cameraOffset = {
+    x: window.innerWidth / 2,
+    y: -window.innerHeight / 2
+  };
   var images = document.querySelectorAll('.float-image');
   images.forEach(function (el) {
     var img = el.querySelector('img');
@@ -52965,6 +52971,9 @@ var WebGLCanvas = function WebGLCanvas(scroll) {
         u_pos: {
           value: 1.0
         },
+        u_hover: {
+          value: 0.
+        },
         texture: {
           type: 't',
           value: texture
@@ -52976,48 +52985,63 @@ var WebGLCanvas = function WebGLCanvas(scroll) {
         imgResolution: {
           type: 'v2',
           value: new _three.THREE.Vector2(imgW, imgH)
+        },
+        u_uvrate: {
+          type: 'v2',
+          value: imgW / imgH
         }
       },
       vertexShader: _vertexShader.default,
       fragmentShader: _fragmentShader.default
     });
+    img.addEventListener('mouseenter', function () {
+      console.log(material.uniforms.u_hover);
+      var tl = new _gsap.TimelineMax();
+      tl.to(material.uniforms.u_hover, _this.animationTime, {
+        ease: Power4.easeOut,
+        value: 1.0
+      });
+    });
+    img.addEventListener('mouseleave', function () {
+      console.log(material.uniforms.u_hover);
+      var tl = new _gsap.TimelineMax();
+      tl.to(material.uniforms.u_hover, _this.animationTime, {
+        ease: Power4.easeOut,
+        value: 0.0
+      });
+    });
+
+    _this.imagesMaterials.push(material);
+
     var plane = new _three.THREE.Mesh(geometry, material);
 
-    _this.scene.add(plane); // var cameraZ = this.camera.position.z;
-    // var planeZ = 5;
-    // var distance = cameraZ - planeZ;
-    // var aspect = window.innerWidth / window.innerHeight;
-    // var vFov = this.camera.fov * Math.PI / 180;
-    // var planeHeightAtDistance = 2 * Math.tan(vFov / 2) * distance;
-    // var planeWidthAtDistance = planeHeightAtDistance * aspect;
-    // or
-
+    _this.scene.add(plane);
 
     var imgRect = el.getBoundingClientRect(); // console.log(imgRect.x, imgRect.y);
 
     plane.position.x = imgRect.x + img.width / 2;
-    plane.position.y = -imgRect.y - img.height / 2;
-    var cameraOffset = {
-      x: window.innerWidth / 2,
-      y: -window.innerHeight / 2
-    };
+    plane.position.y = -imgRect.y - img.height / 2; // scale plane to screen
+
     var dist = _this.camera.position.z - plane.position.z;
     var height = window.innerHeight;
     _this.camera.fov = 2 * Math.atan(height / (2 * dist)) * (180 / Math.PI);
 
     _this.camera.updateProjectionMatrix();
 
-    _this.camera.position.x = cameraOffset.x;
-    _this.camera.position.y = cameraOffset.y;
-    scroll.addEvent(function (position) {
-      console.log(position);
-      var tl4 = new _gsap.TimelineMax();
-      tl4.to(that.camera.position, this.animationTime, {
-        ease: Power4.easeOut,
-        y: cameraOffset.y + position
-      });
+    _this.camera.position.x = _this.cameraOffset.x;
+    _this.camera.position.y = _this.cameraOffset.y;
+  });
+  scroll.addEvent(function (position) {
+    console.log(position);
+    var tl4 = new _gsap.TimelineMax();
+    tl4.to(that.camera.position, _this.animationTime, {
+      ease: Power4.easeOut,
+      y: _this.cameraOffset.y + position
+    });
+
+    _this.imagesMaterials.forEach(function (el) {
       var tl5 = new _gsap.TimelineMax();
-      tl5.to(material.uniforms.u_pos, this.animationTime, {
+      tl5.to(el.uniforms.u_pos, _this.animationTime, {
         ease: Power4.easeOut,
         value: position
       });
@@ -53026,8 +53050,10 @@ var WebGLCanvas = function WebGLCanvas(scroll) {
   var time = 0.1;
 
   function animate() {
-    time += 0.1; // material.uniforms.u_time.value = time;
-
+    time += 0.1;
+    that.imagesMaterials.forEach(function (el) {
+      el.uniforms.u_time.value = time;
+    });
     requestAnimationFrame(animate);
     that.renderer.render(that.scene, that.camera);
   }
@@ -53069,7 +53095,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2859" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "19691" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
