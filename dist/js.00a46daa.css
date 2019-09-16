@@ -27,6 +27,7 @@ img {
 
 .float-image {
   width: 700px;
+  margin: 30px 0;
 }
 .float-image img {
   opacity: 0;

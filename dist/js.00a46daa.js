@@ -53330,7 +53330,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "19431" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "29818" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
