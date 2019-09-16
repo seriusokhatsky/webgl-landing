@@ -2759,7 +2759,9 @@ exports.default = exports.TimelineLite = void 0;
 
 var _TweenLite = _interopRequireWildcard(require("./TweenLite.js"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -3829,7 +3831,9 @@ var _TimelineLite = _interopRequireDefault(require("./TimelineLite.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /*!
  * VERSION: 2.1.3
@@ -4528,7 +4532,9 @@ exports.TweenMaxBase = exports.default = exports.TweenMax = void 0;
 
 var _TweenLite = _interopRequireWildcard(require("./TweenLite.js"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -5374,7 +5380,9 @@ exports.default = exports.CSSPlugin = void 0;
 
 var _TweenLite = _interopRequireWildcard(require("./TweenLite.js"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -10849,7 +10857,9 @@ var _EasePack = require("./EasePack.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /*!
  * VERSION: 2.1.3
@@ -11071,8 +11081,210 @@ var _EasePack = require("./EasePack.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./TweenMax.js":"node_modules/gsap/TweenMax.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"node_modules/three/three.js":[function(require,module,exports) {
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./TweenMax.js":"node_modules/gsap/TweenMax.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"js/dispatcher.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var DispatcherEvent =
+/*#__PURE__*/
+function () {
+  function DispatcherEvent(eventName) {
+    _classCallCheck(this, DispatcherEvent);
+
+    this.eventName = eventName;
+    this.callbacks = [];
+  }
+
+  _createClass(DispatcherEvent, [{
+    key: "registerCallback",
+    value: function registerCallback(callback) {
+      this.callbacks.push(callback);
+    }
+  }, {
+    key: "unregisterCallback",
+    value: function unregisterCallback(callback) {
+      var index = this.callbacks.indexOf(callback);
+
+      if (index > -1) {
+        this.callbacks.splice(index, 1);
+      }
+    }
+  }, {
+    key: "fire",
+    value: function fire(data) {
+      var callbacks = this.callbacks.slice(0);
+      callbacks.forEach(function (callback) {
+        callback(data);
+      });
+    }
+  }]);
+
+  return DispatcherEvent;
+}();
+
+var Dispatcher =
+/*#__PURE__*/
+function () {
+  function Dispatcher() {
+    _classCallCheck(this, Dispatcher);
+
+    this.events = {};
+  }
+
+  _createClass(Dispatcher, [{
+    key: "dispatch",
+    value: function dispatch(eventName, data) {
+      var event = this.events[eventName];
+
+      if (event) {
+        event.fire(data);
+      }
+    }
+  }, {
+    key: "on",
+    value: function on(eventName, callback) {
+      var event = this.events[eventName];
+
+      if (!event) {
+        event = new DispatcherEvent(eventName);
+        this.events[eventName] = event;
+      }
+
+      event.registerCallback(callback);
+    }
+  }, {
+    key: "off",
+    value: function off(eventName, callback) {
+      var event = this.events[eventName];
+
+      if (event && event.callbacks.indexOf(callback) > -1) {
+        event.unregisterCallback(callback);
+
+        if (event.callbacks.length === 0) {
+          delete this.events[eventName];
+        }
+      }
+    }
+  }]);
+
+  return Dispatcher;
+}();
+
+exports.default = Dispatcher;
+},{}],"js/scroll.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _gsap = require("gsap");
+
+var _dispatcher = _interopRequireDefault(require("./dispatcher"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Scroll =
+/*#__PURE__*/
+function (_Dispatcher) {
+  _inherits(Scroll, _Dispatcher);
+
+  function Scroll() {
+    var _this;
+
+    _classCallCheck(this, Scroll);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Scroll).call(this));
+    _this.position = 0;
+    _this.content = document.querySelectorAll('.scroll-content')[0];
+    _this.progressIdicator = document.querySelectorAll('.scroll-progress-indicator')[0];
+    _this.height = _this.content.offsetHeight;
+    _this.windowHeight = window.innerHeight;
+    _this.progress = 0;
+    _this.events = [];
+    _this.animationTime = 1.3;
+    window.addEventListener('mousewheel', _this.onScroll.bind(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(Scroll, [{
+    key: "onScroll",
+    value: function onScroll(e) {
+      if (this.position - e.deltaY <= -this.height + this.windowHeight) {
+        this.position = -this.height + this.windowHeight;
+      } else if (this.position - e.deltaY >= 0) {
+        this.position = 0;
+      } else {
+        this.position -= e.deltaY;
+      }
+
+      this.updatePosition();
+      this.dispatch('scroll', this.position);
+    }
+  }, {
+    key: "updatePosition",
+    value: function updatePosition() {
+      this.progress = -this.position / (this.height - this.windowHeight);
+      this.scrollTo(this.position);
+    }
+  }, {
+    key: "scrollTo",
+    value: function scrollTo(position) {
+      var tl = new _gsap.TimelineMax();
+      var tl2 = new _gsap.TimelineMax();
+      tl.to(this.content, this.animationTime, {
+        ease: Power4.easeOut,
+        y: position
+      });
+      tl2.to(this.progressIdicator, this.animationTime, {
+        ease: Power4.easeOut,
+        height: this.progress * this.windowHeight
+      });
+    }
+  }, {
+    key: "addEvent",
+    value: function addEvent(f) {
+      this.event = f;
+    }
+  }]);
+
+  return Scroll;
+}(_dispatcher.default);
+
+exports.default = Scroll;
+},{"gsap":"node_modules/gsap/index.js","./dispatcher":"js/dispatcher.js"}],"node_modules/three/three.js":[function(require,module,exports) {
 var define;
 var self = self || {};// File:src/Three.js
 
@@ -52832,28 +53044,17 @@ if (typeof exports !== 'undefined') {
   this['THREE'] = THREE;
 }
 
-},{}],"js/vertexShader.glsl":[function(require,module,exports) {
-module.exports = "#define GLSLIFY 1\nvarying vec2 vUv;\nuniform float u_time;\nuniform float u_pos;\nuniform float u_hover;\nvoid main() {\n    vUv = uv;\n    vec3 newPositon = position;\n    float wave = 30.;\n    float zOffset = sin( 180. +  ( position.y - u_pos ) / 160. + u_time / 10. ) * 2.0;\n    newPositon.z = position.z + zOffset * ( 1. - u_hover );\n    // newPositon.x += newPositon.x * (u_hover / 20.);\n    // newPositon.y += newPositon.y * (u_hover / 20.);\n    gl_Position = projectionMatrix *\n                modelViewMatrix *\n                vec4(newPositon, 1.0);\n}";
-},{}],"js/fragmentShader.glsl":[function(require,module,exports) {
-module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform vec2 resolution;\nuniform vec2 imgResolution;\nuniform sampler2D texture;\nvarying vec2 vUv;\nuniform float u_hover;\nuniform float u_uvrate;\n// 2D Random\nfloat random (in vec2 st) {\n    return fract(sin(dot(st.xy,\n                         vec2(12.9898,78.233)))\n                 * 43758.5453123);\n}\n\n// 2D Noise based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 st) {\n    vec2 i = floor(st);\n    vec2 f = fract(st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    // Smooth Interpolation\n\n    // Cubic Hermine Curve.  Same as SmoothStep()\n    vec2 u = f*f*(3.0-2.0*f);\n    // u = smoothstep(0.,1.,f);\n\n    // Mix 4 coorners percentages\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1.0 - u.x) +\n            (d - b) * u.x * u.y;\n}\n\nvoid main()\t{\n    vec2 xy = vUv;\n\n    float d = distance( xy, vec2(.5,.5));\n    float scale = .15;\n\n    vec2 scaleCenter = vec2(0.5, 0.5);\n\n    xy = (xy - scaleCenter) / (1. + scale * u_hover) + scaleCenter;\n    // xy.x -= ( xy.x - .5 ) - (u_hover * scale);\n    // xy.y -= ( xy.y - .5 ) - (u_hover * scale) * u_uvrate;\n\n    // xy.x = xy.x + ( xy.y - .5 ) * ( xy.y - .5 )  / 5.;\n\n    vec4 color = texture2D(texture, xy);\n\n    if( xy.x < 0. || xy.x > 1. ) {\n        // color = vec4(1.);\n    }\n\n    // color = vec4(1., 0., 1., 1.);\n\n    // textureColor.r += noise(xy) / 5.;\n    // textureColor.g += noise(xy) / 15.;\n    // textureColor.b += noise(xy) / 3.;\n\n    gl_FragColor = color;\n}";
-},{}],"assets/1.jpg":[function(require,module,exports) {
-module.exports = "/1.281c93e8.jpg";
-},{}],"js/index.js":[function(require,module,exports) {
+},{}],"js/webgl.js":[function(require,module,exports) {
 "use strict";
 
-require("./../sass/style.scss");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
 var _gsap = require("gsap");
 
 var _three = require("three");
-
-var _vertexShader = _interopRequireDefault(require("./vertexShader.glsl"));
-
-var _fragmentShader = _interopRequireDefault(require("./fragmentShader.glsl"));
-
-var _ = _interopRequireDefault(require("./../assets/1.jpg"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -52861,213 +53062,213 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Scroll =
+var WebGLCanvas =
 /*#__PURE__*/
 function () {
-  function Scroll() {
-    _classCallCheck(this, Scroll);
+  function WebGLCanvas(scroll) {
+    var _this = this;
 
-    this.position = 0;
-    this.content = document.querySelectorAll('.scroll-content')[0];
-    this.progressIdicator = document.querySelectorAll('.scroll-progress-indicator')[0];
-    this.height = this.content.offsetHeight;
-    this.windowHeight = window.innerHeight;
-    this.progress = 0;
-    this.event = undefined;
+    _classCallCheck(this, WebGLCanvas);
+
+    this.canvas = document.getElementById('main-canvas');
+    this.scene = new _three.THREE.Scene();
+    this.camera = new _three.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera.position.z = 70;
+    this.renderer = new _three.THREE.WebGLRenderer({
+      canvas: this.canvas,
+      alpha: true
+    }); // , antialias: true
+
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.imagesMaterials = [];
     this.animationTime = 1.3;
-    window.addEventListener('mousewheel', this.onScroll.bind(this));
+    var that = this;
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.cameraOffset = {
+      x: window.innerWidth / 2,
+      y: -window.innerHeight / 2
+    };
+    scroll.on('scroll', function (position) {
+      var tl4 = new _gsap.TimelineMax();
+      tl4.to(that.camera.position, _this.animationTime, {
+        ease: Power4.easeOut,
+        y: _this.cameraOffset.y + position
+      });
+    });
+    var time = 0.1;
+    this.scalePlaneToscreen();
+
+    function animate() {
+      time += 0.1;
+      that.imagesMaterials.forEach(function (el) {
+        el.uniforms.u_time.value = time;
+      });
+      requestAnimationFrame(animate);
+      that.renderer.render(that.scene, that.camera);
+    }
+
+    animate();
   }
 
-  _createClass(Scroll, [{
-    key: "onScroll",
-    value: function onScroll(e) {
-      if (this.position - e.deltaY <= -this.height + this.windowHeight) {
-        this.position = -this.height + this.windowHeight;
-      } else if (this.position - e.deltaY >= 0) {
-        this.position = 0;
-      } else {
-        this.position -= e.deltaY;
-      }
+  _createClass(WebGLCanvas, [{
+    key: "scalePlaneToscreen",
+    value: function scalePlaneToscreen() {
+      // scale plane to screen
+      var dist = this.camera.position.z - 0; // plane.position.z
 
-      this.updatePosition();
-
-      if (this.event) {
-        this.event(this.position);
-      }
+      var height = window.innerHeight;
+      this.camera.fov = 2 * Math.atan(height / (2 * dist)) * (180 / Math.PI);
+      this.camera.updateProjectionMatrix();
+      this.camera.position.x = this.cameraOffset.x;
+      this.camera.position.y = this.cameraOffset.y;
     }
   }, {
-    key: "updatePosition",
-    value: function updatePosition() {
-      this.progress = -this.position / (this.height - this.windowHeight);
-      this.scrollTo(this.position);
-    }
-  }, {
-    key: "scrollTo",
-    value: function scrollTo(position) {
-      var tl = new _gsap.TimelineMax();
-      var tl2 = new _gsap.TimelineMax();
-      tl.to(this.content, this.animationTime, {
-        ease: Power4.easeOut,
-        y: position
-      });
-      tl2.to(this.progressIdicator, this.animationTime, {
-        ease: Power4.easeOut,
-        height: this.progress * this.windowHeight
-      });
-    }
-  }, {
-    key: "addEvent",
-    value: function addEvent(f) {
-      this.event = f;
+    key: "addMesh",
+    value: function addMesh(mesh) {
+      this.scene.add(mesh);
     }
   }]);
 
-  return Scroll;
+  return WebGLCanvas;
 }();
 
-var WebGLCanvas = function WebGLCanvas(scroll) {
+exports.default = WebGLCanvas;
+},{"gsap":"node_modules/gsap/index.js","three":"node_modules/three/three.js"}],"js/shaders/vertexShader.glsl":[function(require,module,exports) {
+module.exports = "#define GLSLIFY 1\nvarying vec2 vUv;\nuniform float u_time;\nuniform float u_pos;\nuniform float u_hover;\nvoid main() {\n    vUv = uv;\n    vec3 newPositon = position;\n    float wave = 30.;\n    float zOffset = sin( 180. +  ( position.y - u_pos ) / 160. + u_time / 10. ) * 2.0;\n    newPositon.z = position.z + zOffset * ( 1. - u_hover );\n    // newPositon.x += newPositon.x * (u_hover / 20.);\n    // newPositon.y += newPositon.y * (u_hover / 20.);\n    gl_Position = projectionMatrix *\n                modelViewMatrix *\n                vec4(newPositon, 1.0);\n}";
+},{}],"js/shaders/fragmentShader.glsl":[function(require,module,exports) {
+module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform vec2 resolution;\nuniform vec2 imgResolution;\nuniform sampler2D texture;\nvarying vec2 vUv;\nuniform float u_hover;\nuniform float u_uvrate;\n// 2D Random\nfloat random (in vec2 st) {\n    return fract(sin(dot(st.xy,\n                         vec2(12.9898,78.233)))\n                 * 43758.5453123);\n}\n\n// 2D Noise based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 st) {\n    vec2 i = floor(st);\n    vec2 f = fract(st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    // Smooth Interpolation\n\n    // Cubic Hermine Curve.  Same as SmoothStep()\n    vec2 u = f*f*(3.0-2.0*f);\n    // u = smoothstep(0.,1.,f);\n\n    // Mix 4 coorners percentages\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1.0 - u.x) +\n            (d - b) * u.x * u.y;\n}\n\nvoid main()\t{\n    vec2 xy = vUv;\n\n    float d = distance( xy, vec2(.5,.5));\n    float scale = .15;\n\n    vec2 scaleCenter = vec2(0.5, 0.5);\n\n    xy = (xy - scaleCenter) / (1. + scale * u_hover) + scaleCenter;\n    // xy.x -= ( xy.x - .5 ) - (u_hover * scale);\n    // xy.y -= ( xy.y - .5 ) - (u_hover * scale) * u_uvrate;\n\n    // xy.x = xy.x + ( xy.y - .5 ) * ( xy.y - .5 )  / 5.;\n\n    vec4 color = texture2D(texture, xy);\n\n    if( xy.x < 0. || xy.x > 1. ) {\n        // color = vec4(1.);\n    }\n\n    // color = vec4(1., 0., 1., 1.);\n\n    // textureColor.r += noise(xy) / 5.;\n    // textureColor.g += noise(xy) / 15.;\n    // textureColor.b += noise(xy) / 3.;\n\n    gl_FragColor = color;\n}";
+},{}],"js/webgl-parts/image.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _three = require("three");
+
+var _vertexShader = _interopRequireDefault(require("../shaders/vertexShader.glsl"));
+
+var _fragmentShader = _interopRequireDefault(require("../shaders/fragmentShader.glsl"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Image = function Image(el, imgW, imgH, scroll) {
   var _this = this;
 
-  _classCallCheck(this, WebGLCanvas);
+  _classCallCheck(this, Image);
 
-  this.canvas = document.getElementById('main-canvas');
-  this.scene = new _three.THREE.Scene();
-  this.camera = new _three.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  this.camera.position.z = 70;
-  this.renderer = new _three.THREE.WebGLRenderer({
-    canvas: this.canvas,
-    alpha: true,
-    antialias: true
-  });
-  this.renderer.setSize(window.innerWidth, window.innerHeight);
-  this.imagesMaterials = [];
   this.animationTime = 1.3;
-  var that = this;
-  this.renderer.setPixelRatio(window.devicePixelRatio);
-  this.cameraOffset = {
-    x: window.innerWidth / 2,
-    y: -window.innerHeight / 2
-  };
+  var img = el.querySelector('img');
+  var scale = 1;
+  var planeSize = imgW / scale;
+  var geometry = new _three.THREE.PlaneGeometry(planeSize, planeSize * imgH / imgW, 1, 16);
+  var material;
+  material = new _three.THREE.MeshBasicMaterial({
+    color: 0xffff00,
+    side: _three.THREE.DoubleSide
+  });
+  var texture = new _three.THREE.TextureLoader().load(img.src);
+  texture.minFilter = _three.THREE.LinearFilter;
+  material = new _three.THREE.ShaderMaterial({
+    uniforms: {
+      u_time: {
+        value: 1.0
+      },
+      u_pos: {
+        value: 1.0
+      },
+      u_hover: {
+        value: 0.
+      },
+      texture: {
+        type: 't',
+        value: texture
+      },
+      resolution: {
+        type: 'v2',
+        value: new _three.THREE.Vector2(window.innerWidth, window.innerHeight)
+      },
+      imgResolution: {
+        type: 'v2',
+        value: new _three.THREE.Vector2(imgW, imgH)
+      },
+      u_uvrate: {
+        type: 'v2',
+        value: imgW / imgH
+      }
+    },
+    vertexShader: _vertexShader.default,
+    fragmentShader: _fragmentShader.default
+  });
+  img.addEventListener('mouseenter', function () {
+    var tl = new TimelineMax();
+    tl.to(material.uniforms.u_hover, _this.animationTime, {
+      ease: Power4.easeOut,
+      value: 1.0
+    });
+  });
+  img.addEventListener('mouseleave', function () {
+    var tl = new TimelineMax();
+    tl.to(material.uniforms.u_hover, _this.animationTime, {
+      ease: Power4.easeOut,
+      value: 0.0
+    });
+  });
+  var plane = new _three.THREE.Mesh(geometry, material);
+  var imgRect = el.getBoundingClientRect(); // console.log(imgRect.x, imgRect.y);
+
+  plane.position.x = imgRect.x + img.width / 2;
+  plane.position.y = -imgRect.y - img.height / 2;
+  scroll.on('scroll', function (position) {
+    var tl = new TimelineMax();
+    tl.to(material.uniforms.u_pos, _this.animationTime, {
+      ease: Power4.easeOut,
+      value: position
+    });
+  });
+  return plane;
+};
+
+exports.default = Image;
+},{"three":"node_modules/three/three.js","../shaders/vertexShader.glsl":"js/shaders/vertexShader.glsl","../shaders/fragmentShader.glsl":"js/shaders/fragmentShader.glsl"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+require("./../sass/style.scss");
+
+var _scroll = _interopRequireDefault(require("./scroll"));
+
+var _webgl = _interopRequireDefault(require("./webgl"));
+
+var _image = _interopRequireDefault(require("./webgl-parts/image"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var App = function App() {
+  _classCallCheck(this, App);
+
+  var scroll = new _scroll.default();
+  var webgl = new _webgl.default(scroll);
   var images = document.querySelectorAll('.float-image');
   images.forEach(function (el) {
     var img = el.querySelector('img');
     var imgW = img.width;
     var imgH = img.height;
-    var scale = 1;
-    var planeSize = imgW / scale;
-    var geometry = new _three.THREE.PlaneGeometry(planeSize, planeSize * imgH / imgW, 1, 16);
-    var material;
-    material = new _three.THREE.MeshBasicMaterial({
-      color: 0xffff00,
-      side: _three.THREE.DoubleSide
-    });
-    var texture = new _three.THREE.TextureLoader().load(img.src);
-    texture.minFilter = _three.THREE.LinearFilter;
-    material = new _three.THREE.ShaderMaterial({
-      uniforms: {
-        u_time: {
-          value: 1.0
-        },
-        u_pos: {
-          value: 1.0
-        },
-        u_hover: {
-          value: 0.
-        },
-        texture: {
-          type: 't',
-          value: texture
-        },
-        resolution: {
-          type: 'v2',
-          value: new _three.THREE.Vector2(window.innerWidth, window.innerHeight)
-        },
-        imgResolution: {
-          type: 'v2',
-          value: new _three.THREE.Vector2(imgW, imgH)
-        },
-        u_uvrate: {
-          type: 'v2',
-          value: imgW / imgH
-        }
-      },
-      vertexShader: _vertexShader.default,
-      fragmentShader: _fragmentShader.default
-    });
-    img.addEventListener('mouseenter', function () {
-      console.log(material.uniforms.u_hover);
-      var tl = new _gsap.TimelineMax();
-      tl.to(material.uniforms.u_hover, _this.animationTime, {
-        ease: Power4.easeOut,
-        value: 1.0
-      });
-    });
-    img.addEventListener('mouseleave', function () {
-      console.log(material.uniforms.u_hover);
-      var tl = new _gsap.TimelineMax();
-      tl.to(material.uniforms.u_hover, _this.animationTime, {
-        ease: Power4.easeOut,
-        value: 0.0
-      });
-    });
-
-    _this.imagesMaterials.push(material);
-
-    var plane = new _three.THREE.Mesh(geometry, material);
-
-    _this.scene.add(plane);
-
-    var imgRect = el.getBoundingClientRect(); // console.log(imgRect.x, imgRect.y);
-
-    plane.position.x = imgRect.x + img.width / 2;
-    plane.position.y = -imgRect.y - img.height / 2; // scale plane to screen
-
-    var dist = _this.camera.position.z - plane.position.z;
-    var height = window.innerHeight;
-    _this.camera.fov = 2 * Math.atan(height / (2 * dist)) * (180 / Math.PI);
-
-    _this.camera.updateProjectionMatrix();
-
-    _this.camera.position.x = _this.cameraOffset.x;
-    _this.camera.position.y = _this.cameraOffset.y;
+    var image = new _image.default(el, imgW, imgH, scroll);
+    webgl.addMesh(image);
   });
-  scroll.addEvent(function (position) {
-    console.log(position);
-    var tl4 = new _gsap.TimelineMax();
-    tl4.to(that.camera.position, _this.animationTime, {
-      ease: Power4.easeOut,
-      y: _this.cameraOffset.y + position
-    });
-
-    _this.imagesMaterials.forEach(function (el) {
-      var tl5 = new _gsap.TimelineMax();
-      tl5.to(el.uniforms.u_pos, _this.animationTime, {
-        ease: Power4.easeOut,
-        value: position
-      });
-    });
-  });
-  var time = 0.1;
-
-  function animate() {
-    time += 0.1;
-    that.imagesMaterials.forEach(function (el) {
-      el.uniforms.u_time.value = time;
-    });
-    requestAnimationFrame(animate);
-    that.renderer.render(that.scene, that.camera);
-  }
-
-  animate();
 };
 
 window.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
-    var scroll = new Scroll();
-    new WebGLCanvas(scroll);
+    new App();
   }, 500); // TODO: Fix google fonts loading delay
 });
-},{"./../sass/style.scss":"sass/style.scss","gsap":"node_modules/gsap/index.js","three":"node_modules/three/three.js","./vertexShader.glsl":"js/vertexShader.glsl","./fragmentShader.glsl":"js/fragmentShader.glsl","./../assets/1.jpg":"assets/1.jpg"}],"C:/Users/Serg/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./../sass/style.scss":"sass/style.scss","./scroll":"js/scroll.js","./webgl":"js/webgl.js","./webgl-parts/image":"js/webgl-parts/image.js"}],"C:/Users/Serg/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -53095,7 +53296,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "19691" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "19431" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
