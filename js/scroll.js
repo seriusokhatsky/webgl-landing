@@ -1,4 +1,4 @@
-import { TimelineMax } from 'gsap';
+import { TimelineMax, TweenLite } from 'gsap';
 import Dispatcher from './dispatcher';
 
 export default class Scroll extends Dispatcher {
@@ -35,7 +35,10 @@ export default class Scroll extends Dispatcher {
 		this.progress = -this.position / (this.height - this.windowHeight);
 
 		this.scrollTo(this.position);
-		
+	}
+
+	getPosition() {
+		return this.position;
 	}
 
 	scrollTo(position) {
@@ -44,10 +47,6 @@ export default class Scroll extends Dispatcher {
 		tl.to(this.content, this.animationTime, { ease: Power4.easeOut, y:position } );
 
 		tl2.to(this.progressIdicator, this.animationTime, { ease: Power4.easeOut, height: this.progress * this.windowHeight } );
-	}
-
-	addEvent(f) {
-		this.event = f;
 	}
 	
 }

@@ -11260,6 +11260,11 @@ function (_Dispatcher) {
       this.scrollTo(this.position);
     }
   }, {
+    key: "getPosition",
+    value: function getPosition() {
+      return this.position;
+    }
+  }, {
     key: "scrollTo",
     value: function scrollTo(position) {
       var tl = new _gsap.TimelineMax();
@@ -11272,11 +11277,6 @@ function (_Dispatcher) {
         ease: Power4.easeOut,
         height: this.progress * this.windowHeight
       });
-    }
-  }, {
-    key: "addEvent",
-    value: function addEvent(f) {
-      this.event = f;
     }
   }]);
 
@@ -53071,26 +53071,27 @@ function () {
     _classCallCheck(this, WebGLCanvas);
 
     this.canvas = document.getElementById('main-canvas');
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
     this.scene = new _three.THREE.Scene();
-    this.camera = new _three.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera = new _three.THREE.PerspectiveCamera(75, this.width / this.height, 0.1, 1000);
     this.camera.position.z = 70;
     this.renderer = new _three.THREE.WebGLRenderer({
       canvas: this.canvas,
-      alpha: true
+      alpha: true,
+      antialias: true
     }); // , antialias: true
 
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.imagesMaterials = [];
+    this.renderer.setSize(this.width, this.height);
     this.animationTime = 1.3;
+    this.scroll = scroll;
+    this.resizing = false;
+    this.resizingTimeout = 0;
     var that = this;
     this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.cameraOffset = {
-      x: window.innerWidth / 2,
-      y: -window.innerHeight / 2
-    };
-    scroll.on('scroll', function (position) {
-      var tl4 = new _gsap.TimelineMax();
-      tl4.to(that.camera.position, _this.animationTime, {
+    this.scroll.on('scroll', function (position) {
+      var tl = new _gsap.TimelineMax();
+      tl.to(_this.camera.position, _this.animationTime, {
         ease: Power4.easeOut,
         y: _this.cameraOffset.y + position
       });
@@ -53100,27 +53101,57 @@ function () {
 
     function animate() {
       time += 0.1;
-      that.imagesMaterials.forEach(function (el) {
-        el.uniforms.u_time.value = time;
-      });
       requestAnimationFrame(animate);
-      that.renderer.render(that.scene, that.camera);
+
+      if (that.needsRender()) {
+        that.renderer.render(that.scene, that.camera);
+      }
     }
 
     animate();
+    window.addEventListener('resize', function () {
+      _this.resizing = true;
+      clearTimeout(_this.resizingTimeout);
+      _this.resizingTimeout = setTimeout(function () {
+        _this.resize();
+
+        _this.resizing = false;
+      }, 300);
+    });
   }
 
   _createClass(WebGLCanvas, [{
+    key: "needsRender",
+    value: function needsRender() {
+      // if( ! this.scroll.isScrolling() ) {
+      // 	return false;
+      // }
+      return true;
+    }
+  }, {
+    key: "resize",
+    value: function resize() {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.scalePlaneToscreen();
+      this.renderer.setSize(this.width, this.height);
+    }
+  }, {
     key: "scalePlaneToscreen",
     value: function scalePlaneToscreen() {
       // scale plane to screen
       var dist = this.camera.position.z - 0; // plane.position.z
 
-      var height = window.innerHeight;
-      this.camera.fov = 2 * Math.atan(height / (2 * dist)) * (180 / Math.PI);
+      this.camera.fov = 2 * Math.atan(this.height / (2 * dist)) * (180 / Math.PI);
       this.camera.updateProjectionMatrix();
+      this.cameraOffset = {
+        x: this.width / 2,
+        y: -this.height / 2
+      };
+      var scrollPosition = this.scroll.getPosition();
       this.camera.position.x = this.cameraOffset.x;
-      this.camera.position.y = this.cameraOffset.y;
+      this.camera.position.y = scrollPosition + this.cameraOffset.y;
     }
   }, {
     key: "addMesh",
@@ -53224,10 +53255,13 @@ var Image = function Image(el, imgW, imgH, scroll) {
   plane.position.y = -imgRect.y - img.height / 2;
   scroll.on('scroll', function (position) {
     var tl = new TimelineMax();
-    tl.to(material.uniforms.u_pos, _this.animationTime, {
+    tl.clear().to(material.uniforms.u_pos, _this.animationTime, {
       ease: Power4.easeOut,
       value: position
     });
+  });
+  window.addEventListener('resize', function () {
+    material.uniforms.resolution.value = new _three.THREE.Vector2(window.innerWidth, window.innerHeight);
   });
   return plane;
 };

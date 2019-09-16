@@ -58,7 +58,11 @@ export default class Image {
 
 		scroll.on('scroll', (position) => {
 			var tl = new TimelineMax();
-			tl.to(material.uniforms.u_pos, this.animationTime, { ease: Power4.easeOut, value: position } );
+			tl.clear().to(material.uniforms.u_pos, this.animationTime, { ease: Power4.easeOut, value: position } );
+		});
+
+		window.addEventListener('resize', () => {
+			material.uniforms.resolution.value = new THREE.Vector2(window.innerWidth,window.innerHeight);
 		});
 
 		return plane;
