@@ -1,4 +1,4 @@
-import { THREE } from 'three';
+import * as THREE from 'three'
 
 import vertexShader from '../shaders/linesvertexShader.glsl';
 import fragmentShader from '../shaders/linesShader.glsl';

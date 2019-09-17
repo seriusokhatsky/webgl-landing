@@ -1,10 +1,11 @@
-
 import { TimelineMax } from 'gsap';
-import { THREE } from 'three';
+import * as THREE from 'three'
+
+console.log(THREE);
 
 export default class WebGLCanvas {
 	constructor(scroll) {
-		const ANTIALISE = false;
+		const ANTIALISE = true;
 		this.canvas = document.getElementById('main-canvas');
 		this.width = window.innerWidth;
 		this.height = window.innerHeight;
@@ -12,7 +13,7 @@ export default class WebGLCanvas {
 		this.scene = new THREE.Scene();
 		this.camera = new THREE.PerspectiveCamera( 75, this.width / this.height, 0.1, 1000 );
 		this.camera.position.z = 70;
-		this.renderer = new THREE.WebGLRenderer( { canvas: this.canvas, alpha: true, powerPreference: "high-power", antialias: ANTIALISE } ); // , antialias: true
+		this.renderer = new THREE.WebGLRenderer( { canvas: this.canvas, alpha: true, antialias: ANTIALISE } ); // , antialias: true
 		this.renderer.setSize( this.width, this.height );
 		this.animationTime = 1.3;
 		this.scroll = scroll;
