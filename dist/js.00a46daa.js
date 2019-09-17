@@ -53070,6 +53070,7 @@ function () {
 
     _classCallCheck(this, WebGLCanvas);
 
+    var ANTIALISE = false;
     this.canvas = document.getElementById('main-canvas');
     this.width = window.innerWidth;
     this.height = window.innerHeight;
@@ -53079,7 +53080,8 @@ function () {
     this.renderer = new _three.THREE.WebGLRenderer({
       canvas: this.canvas,
       alpha: true,
-      antialias: true
+      powerPreference: "high-power",
+      antialias: ANTIALISE
     }); // , antialias: true
 
     this.renderer.setSize(this.width, this.height);
@@ -53087,8 +53089,8 @@ function () {
     this.scroll = scroll;
     this.resizing = false;
     this.resizingTimeout = 0;
-    var that = this;
-    this.renderer.setPixelRatio(window.devicePixelRatio);
+    var that = this; // this.renderer.setPixelRatio(window.devicePixelRatio);
+
     this.scroll.on('scroll', function (position) {
       var tl = new _gsap.TimelineMax();
       tl.to(_this.camera.position, _this.animationTime, {
@@ -53267,7 +53269,79 @@ var Image = function Image(el, imgW, imgH, scroll) {
 };
 
 exports.default = Image;
-},{"three":"node_modules/three/three.js","../shaders/vertexShader.glsl":"js/shaders/vertexShader.glsl","../shaders/fragmentShader.glsl":"js/shaders/fragmentShader.glsl"}],"js/index.js":[function(require,module,exports) {
+},{"three":"node_modules/three/three.js","../shaders/vertexShader.glsl":"js/shaders/vertexShader.glsl","../shaders/fragmentShader.glsl":"js/shaders/fragmentShader.glsl"}],"js/shaders/linesvertexShader.glsl":[function(require,module,exports) {
+module.exports = "#define GLSLIFY 1\nvarying vec2 vUv;\nuniform float u_time;\nuniform float u_pos;\nuniform float u_hover;\nvoid main() {\n\tvUv = uv;\n\tgl_Position = projectionMatrix *\n\t\t\t\tmodelViewMatrix *\n\t\t\t\tvec4(position, 1.0);\n}";
+},{}],"js/shaders/linesShader.glsl":[function(require,module,exports) {
+module.exports = "#define GLSLIFY 1\nuniform float time;\nuniform vec2 resolution;\nuniform sampler2D texture;\nvarying vec2 vUv;\nuniform float u_hover;\nuniform float u_pos;\nuniform float u_uvrate;\nvoid main()\t{\n\tvec2 uv = vUv;\n\n\tvec4 rgba = vec4(1., 1., 1., 1.);\n\n\tif ( uv.y > sin(uv.x * 2.) ) {\n\t\t// rgba.r = 1.;\n\t}\n\n\tfloat pi = 3.1415;\n\n\tfloat law;\n\tfloat period;\n\tfloat phase;\n\n\tfloat coord = 0.;\n\tfloat p = 0.;\n\tfloat intervalSize = .04;\n\n\tfor( float i = -12.; i <= 12.; i++ ) {\n\t\tfloat i_i = i + fract( -u_pos * .004 );\n\t\tfloat interval = i_i * intervalSize;\n\n\t\tlaw = (uv.x - 0.5) * (uv.x - 0.5) * i_i + interval + .5; // - i / 10.\n\t\tcoord = smoothstep( uv.y -.002, uv.y + .002, law );\n\n\t\tp += coord * ( 1. - coord);\n\t}\n\n\trgba = vec4( 0.1, 0.1, 0.1, p );\n\n\tgl_FragColor = rgba;\n}";
+},{}],"js/webgl-parts/lines.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _three = require("three");
+
+var _linesvertexShader = _interopRequireDefault(require("../shaders/linesvertexShader.glsl"));
+
+var _linesShader = _interopRequireDefault(require("../shaders/linesShader.glsl"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Lines = function Lines(scroll) {
+  _classCallCheck(this, Lines);
+
+  var scale = 1.2;
+  var width = window.innerWidth * scale;
+  var height = window.innerHeight * scale;
+  var geometry = new _three.THREE.PlaneGeometry(width, height);
+  var material = new _three.THREE.ShaderMaterial({
+    uniforms: {
+      u_time: {
+        value: 1.0
+      },
+      u_pos: {
+        value: 0.0
+      },
+      u_hover: {
+        value: 0.
+      },
+      resolution: {
+        type: 'v2',
+        value: new _three.THREE.Vector2(width, height)
+      },
+      u_uvrate: {
+        type: 'v2',
+        value: width / height
+      }
+    },
+    vertexShader: _linesvertexShader.default,
+    fragmentShader: _linesShader.default
+  });
+  var plane = new _three.THREE.Mesh(geometry, material);
+  plane.position.x = width / 2 / scale;
+  plane.position.y = -height / 2 / scale;
+  plane.position.z = -10;
+  scroll.on('scroll', function (position) {
+    var tl = new TimelineMax();
+    var tl2 = new TimelineMax();
+    tl.clear().to(plane.position, 1.3, {
+      ease: Power4.easeOut,
+      y: -height / 2 / scale + position
+    });
+    tl2.clear().to(material.uniforms.u_pos, 1.3, {
+      ease: Power4.easeOut,
+      value: position
+    });
+  });
+  return plane;
+};
+
+exports.default = Lines;
+},{"three":"node_modules/three/three.js","../shaders/linesvertexShader.glsl":"js/shaders/linesvertexShader.glsl","../shaders/linesShader.glsl":"js/shaders/linesShader.glsl"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("./../sass/style.scss");
@@ -53277,6 +53351,8 @@ var _scroll = _interopRequireDefault(require("./scroll"));
 var _webgl = _interopRequireDefault(require("./webgl"));
 
 var _image = _interopRequireDefault(require("./webgl-parts/image"));
+
+var _lines = _interopRequireDefault(require("./webgl-parts/lines"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53295,6 +53371,8 @@ var App = function App() {
     var image = new _image.default(el, imgW, imgH, scroll);
     webgl.addMesh(image);
   });
+  var lines = new _lines.default(scroll);
+  webgl.addMesh(lines);
 };
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -53302,7 +53380,7 @@ window.addEventListener('DOMContentLoaded', function () {
     new App();
   }, 500); // TODO: Fix google fonts loading delay
 });
-},{"./../sass/style.scss":"sass/style.scss","./scroll":"js/scroll.js","./webgl":"js/webgl.js","./webgl-parts/image":"js/webgl-parts/image.js"}],"C:/Users/Serg/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./../sass/style.scss":"sass/style.scss","./scroll":"js/scroll.js","./webgl":"js/webgl.js","./webgl-parts/image":"js/webgl-parts/image.js","./webgl-parts/lines":"js/webgl-parts/lines.js"}],"C:/Users/Serg/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -53330,7 +53408,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "29818" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33146" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

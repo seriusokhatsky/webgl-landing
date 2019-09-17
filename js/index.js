@@ -3,6 +3,7 @@ import './../sass/style.scss';
 import Scroll from './scroll';
 import WebGLCanvas from './webgl';
 import Image from './webgl-parts/image';
+import Lines from './webgl-parts/lines';
 
 class App {
 	constructor() {
@@ -18,6 +19,10 @@ class App {
 			var image = new Image( el, imgW, imgH, scroll );
 			webgl.addMesh(image);
 		});
+
+		const lines = new Lines(scroll);
+
+		webgl.addMesh(lines);
 
 	}
 }
