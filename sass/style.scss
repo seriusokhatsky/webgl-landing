@@ -21,6 +21,22 @@ img {
 	max-width: 100%;
 }
 
+body, a {
+	// cursor: none;
+}
+
+.cursor {
+	// background: red;
+	border: 2px solid red;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: none;
+	position: fixed;
+	z-index: 150;
+	pointer-events: none;
+}
+
 .hero-section {
 	display: flex;
 

@@ -4,6 +4,7 @@ import Scroll from './scroll';
 import WebGLCanvas from './webgl';
 import Image from './webgl-parts/image';
 import Lines from './webgl-parts/lines';
+import Cursor from './webgl-parts/cursor';
 
 class App {
 	constructor() {
@@ -23,6 +24,8 @@ class App {
 		const lines = new Lines(scroll);
 
 		webgl.addMesh(lines);
+
+		const cursor = new Cursor(scroll);
 
 	}
 }
