@@ -23,8 +23,6 @@ export default class Scroll extends Dispatcher {
 
 	performScroll(y) {
 
-		console.log(y);
-
 		if( this.position - y <= -this.height + this.windowHeight ) {
 			this.position = -this.height + this.windowHeight;
 		} else if( this.position - y >= 0 ) {

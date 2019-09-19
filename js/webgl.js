@@ -1,8 +1,6 @@
 import { TimelineMax } from 'gsap';
 import * as THREE from 'three'
 
-console.log(THREE);
-
 export default class WebGLCanvas {
 	constructor(scroll) {
 		const ANTIALISE = true;
