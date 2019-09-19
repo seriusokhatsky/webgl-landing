@@ -1,5 +1,6 @@
 export default class Cursor {
-	constructor() {
+	constructor(scroll) {
+		this.scroll = scroll;
 
 		var cursor = document.getElementsByClassName('cursor')[0];
 		var body = document.getElementsByTagName('body')[0];
@@ -10,16 +11,32 @@ export default class Cursor {
 		var x = 0;
 		var y = 0;
 
+		var inScroll = false;
+
 		var x1 = -1;
 		var y1 = -1;
 		var dx = 0;
 		var dy = 0;
 
+		body.addEventListener('mousedown', function(e) { 
+			if (e.which != 2) {
+				return;
+			}
+			inScroll = true;
+			cursor.classList.add('in-scroll');
+		 });
+		 body.addEventListener('mouseup', function(e) { 
+			if (e.which != 2) {
+				return;
+			}
+			inScroll = false;
+			cursor.classList.remove('in-scroll');
+		});
+
 		body.addEventListener('mouseenter', (e) => {
 			cursor.style.display = 'block';
 			x1 = e.clientX - width/2;
 			y1 = e.clientY - height/2;	
-			console.log(x1, y1);	
 		});
 
 		body.addEventListener('mousemove', (e) => {
@@ -34,6 +51,8 @@ export default class Cursor {
 		});
 		body.addEventListener('mouseleave', (e) => {
 			cursor.style.display = 'none';
+			inScroll = false;
+			cursor.classList.remove('in-scroll');
 		});
 
 		const render = () => {	
@@ -41,6 +60,10 @@ export default class Cursor {
 			dy = (y - y1) * .8;
 			x1 = x - dx;
 			y1 = y - dy;
+
+			if( inScroll ) {
+				this.scroll.performScroll(dy);
+			}
 
 			TweenMax.set(cursor, {
 			  x: x1,

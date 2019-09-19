@@ -18,17 +18,23 @@ export default class Scroll extends Dispatcher {
 	}
 
 	onScroll(e) {
-		if( this.position - e.deltaY <= -this.height + this.windowHeight ) {
+		this.performScroll(e.deltaY);
+	}
+
+	performScroll(y) {
+
+		console.log(y);
+
+		if( this.position - y <= -this.height + this.windowHeight ) {
 			this.position = -this.height + this.windowHeight;
-		} else if( this.position - e.deltaY >= 0 ) {
+		} else if( this.position - y >= 0 ) {
 			this.position = 0;
 		} else {
-			this.position -= e.deltaY;
+			this.position -= y;
 		}
 		this.updatePosition();
 
 		this.dispatch('scroll', this.position);
-
 	}
 
 	updatePosition() {

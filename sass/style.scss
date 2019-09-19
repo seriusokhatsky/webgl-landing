@@ -35,13 +35,56 @@ body, a {
 	position: fixed;
 	z-index: 150;
 	pointer-events: none;
+	transition: .3s ease-in-out;
+	transition-property: width, height, margin-top, margin-left;
+	.arrows {
+		display: none;
+		position: absolute;
+		top:0;
+		bottom: 0;
+		width:100%;
+		text-align: center;
+		&:after,
+		&:before {
+			content: "";
+			position: absolute;
+			display: inline-block;
+			top: -18px;
+			width: 12px;
+			height: 12px;
+			border-color: rgb(0, 0, 0);
+			border-style: solid;
+			border-width: 1px;
+			border-bottom: none;
+			border-left: none;
+			left: 50%;
+			transform: translateX(-50%) rotate(-45deg);
+			transition: 0.2 all ease-in-out;
+			opacity: 0.8;
+		}
+
+		&:after {
+			top: auto;
+			bottom: -18px;
+			transform: translateX(-50%) rotate(-225deg);
+		}
+	}
+	&.in-scroll {
+		width: 60px;
+		height: 60px;
+		margin-top: -5px;
+		margin-left: -5px;
+		.arrows {
+			display: block;
+		}
+	}
 }
 
 .hero-section {
 	display: flex;
 
 	h1 {
-		margin: 155px -100px 100px 215px;
+		margin: 155px -110px 100px 190px;
 	}
 	
 }
